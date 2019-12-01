@@ -18,7 +18,7 @@ class MyListener(StreamListener):
     def __init__ (self, time_limit=300):
         self.start_time = time.time()
         self.limit = time_limit
-        self.outFile = open("output.json", "w")
+        self.outFile = open("third.json", "w")
         super(MyListener, self).__init__()
         
     def on_data(self, data):
@@ -44,7 +44,7 @@ def stream():
     api = tweepy.API(auth)
 
 
-    myStream = Stream(auth, MyListener(time_limit=10))
-    myStream.filter(track=["debate"])
+    myStream = Stream(auth, MyListener(time_limit=1200))
+    myStream.filter(track=["bernie", "sanders", "@berniesanders", "elizabeth", "warren", "@ewarren", "joe", "biden", "@joebiden", "pete", "buttigieg", "@PeteButtigieg", "kamala", "harris", "@KamalaHarris", "andrew", "yang", "@AndrewYang", "cory", "booker", "@CoryBooker", "amy", "klobuchar", "@amyklobuchar", "tom", "steyer", "@TomSteyer", "tulsi", "gabbard", "@TulsiGabbard"])
 
 stream()
